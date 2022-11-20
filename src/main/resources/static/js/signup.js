@@ -35,6 +35,7 @@ $(document).ready(function() {
         }
     });
     $("#btn").click(function() {
+        const base_url = window.location.origin;
         $("#error_span").html("");
         if($("#frm").valid()) {
             $("#btn").attr("disabled", true);
@@ -43,7 +44,7 @@ $(document).ready(function() {
             // console.log($("#urlinput").val());
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:8080/register',
+                url: base_url + '/register',
                 data: JSON.stringify({
                     "firstName": $("#firstname").val(),
                     "lastName": $("#lastname").val(),
